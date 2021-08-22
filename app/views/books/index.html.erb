@@ -15,8 +15,8 @@
       <td>
         <td><%= booklist.title %></td>
         <td><%= booklist.body %></td>
-        <td><%= link_to 'show', '/todolists/id/show' %></td>
-        <td>Edit</td>
+        <td><%= link_to 'show', book_path(booklist.id) %></td>
+        <td><%= link_to 'Edit', edit_book_path(booklist.id) %></td>
         <td>Destroy</td>
       </td>
       <% end %>

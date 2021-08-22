@@ -21,3 +21,12 @@ a {
 th {
     padding-bottom: 5px;
 }
+
+
+div.field, div.actions {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+}
