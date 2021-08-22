@@ -29,3 +29,16 @@ p {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }
+
+th {
+    display: table-cell;
+    vertical-align: inherit;
+    font-weight: bold;
+    text-align: -internal-center;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}

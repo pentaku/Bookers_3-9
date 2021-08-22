@@ -1,4 +1,5 @@
 <body>
+  <p id="notice"></p>
   <h1>Books</h1>
   <table>
     <thead>
@@ -12,15 +13,34 @@
 
     <tbody>
       <% @booklists.each do |booklist| %>
-      <td>
+      <tr>
         <td><%= booklist.title %></td>
         <td><%= booklist.body %></td>
         <td><%= link_to 'show', book_path(booklist.id) %></td>
         <td><%= link_to 'Edit', edit_book_path(booklist.id) %></td>
         <td><%= link_to "Deleate", destroy_book_path(booklist.id), method: :delete, "data-confirm" => "Are you sure？" %></td>
-      </td>
+      </tr>
       <% end %>
     </tbody>
   </table>
+
+  <h2>New book</h2>
+  <%= form_with model: @booklist, url:'/books', local:true do |f| %>
+  <div class="field">
+    <label for="book_title">Title</label>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+  <label for="book_body">Body</label>
+  <%= f.text_area :body %>
+  </div>
+
+  <div class="actions">
+  <%= f.submit 'Create Book' %>
+  </div>
+
+  <% end %>
 </body>
+
 

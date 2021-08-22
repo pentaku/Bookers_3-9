@@ -2,36 +2,33 @@ class BooksController < ApplicationController
   def top
   end
 
-  def new
-    @booklist = Booklist.new
-  end
-
   def index
-    @booklists = Booklist.all
+    @booklist = Book.new
+    @booklists = Book.all
   end
 
   def create
-    booklist = Booklist.new(booklist_params)
+    booklist = Book.new(book_params)
     booklist.save
     redirect_to book_path(booklist.id)
   end
 
   def show
-     @booklist = Booklist.find(params[:id])
+     @booklist = Book.find(params[:id])
   end
 
   def edit
-    @booklist = Booklist.find(params[:id])
+    @booklist = Book.find(params[:id])
   end
 
   def update
-    booklist = Booklist.find(params[:id])
-    booklist.update(booklist_params)
+    booklist = Book.find(params[:id])
+    booklist.update(book_params)
     redirect_to book_path(booklist.id)
   end
 
   def destroy
-    booklist = Booklist.find(params[:id])
+    booklist = Book.find(params[:id])
     booklist.destroy
     redirect_to books_path
   end
@@ -39,7 +36,7 @@ class BooksController < ApplicationController
 
   private
 
-  def booklist_params
-    params.require(:booklist).permit(:title, :body)
+  def book_params
+    params.require(:book).permit(:title, :body)
   end
 end
