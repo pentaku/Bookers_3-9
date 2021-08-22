@@ -16,3 +16,8 @@ p, ol, ul, td {
 a {
     color: #000;
 }
+
+#インデックスページ
+th {
+    padding-bottom: 5px;
+}
