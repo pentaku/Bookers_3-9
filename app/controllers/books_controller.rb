@@ -30,6 +30,12 @@ class BooksController < ApplicationController
     redirect_to book_path(booklist.id)
   end
 
+  def destroy
+    booklist = Booklist.find(params[:id])
+    booklist.destroy
+    redirect_to books_path
+  end
+
 
   private
 
