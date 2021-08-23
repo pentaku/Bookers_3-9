@@ -1,5 +1,11 @@
 <body>
-    <p id="notice"></p>
+
+    <% if flash[:notice] %>
+    <p id="notice">
+        <%= flash[:notice] %>
+    </p>
+    <% end %>
+
     <p>
         <strong>Title:</strong>
         <%= @booklist.title %>

@@ -1,5 +1,11 @@
 <body>
-  <p id="notice"></p>
+  <% if flash[:notice] %>
+    <p id="notice">
+        <%= flash[:notice] %>
+    </p>
+  <% end %>
+
+
   <h1>Books</h1>
   <table>
     <thead>
@@ -26,6 +32,19 @@
 
   <h2>New book</h2>
   <%= form_with model: @booklist, url:'/books', local:true do |f| %>
+  <% if @booklist.errors.any? %>
+  <div id="error_explanation">
+      <h2><%= @booklist.errors.count %>件のerrorが発生しました</h2>
+      <% @booklist.errors.full_messages.each do |message| %>
+      <ul>
+        <li>
+          <%= message %>
+        </li>
+      </ul>
+  <% end %>
+  <% end %>
+
+
   <div class="field">
     <label for="book_title">Title</label>
     <%= f.text_field :title %>
@@ -42,5 +61,8 @@
 
   <% end %>
 </body>
+
+
+
 
 
